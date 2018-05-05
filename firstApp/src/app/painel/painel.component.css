@@ -1,0 +1,17 @@
+.text-muted {
+  color: black;
+}
+
+p {
+  text-decoration: underline;
+}
+
+.jumbotron {
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.info {
+  padding-bottom: 10px;
+}
