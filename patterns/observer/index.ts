@@ -35,8 +35,39 @@ class WheaterStation implements Subject {
 }
 
 class TemperatureDisplay implements Observer {
-  
+  private subject : Subject;
+
+  constructor(sub : Subject) {
+    this.subject = sub;
+    sub.registerObserver(this);
+  };
+
   update(temperature: number): void {
-    throw new Error("Method not implemented.");
+    console.log('Update temperature');
   }
 }
+
+class Fan implements Observer {
+  private subject : Subject;
+
+  constructor(sub : Subject) {
+    this.subject = sub;
+    sub.registerObserver(this);
+  };
+
+  update(temperature: number): void {
+    if (temperature > 25) {
+      console.log('Turn fan on');
+    } else {
+      console.log('Turn fan off');
+    }
+  }
+}
+
+let weatherStation = new WheaterStation();
+
+let display = new TemperatureDisplay(weatherStation);
+let fan = new Fan(weatherStation);
+
+weatherStation.setTemperature(20);
+weatherStation.setTemperature(30);
