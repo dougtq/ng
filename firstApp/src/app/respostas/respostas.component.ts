@@ -8,13 +8,26 @@ import { frases } from './frase-mock';
   styleUrls: ['./respostas.component.css']
 })
 export class RespostasComponent implements OnInit {
-  public frases = frases;
+  protected frases = frases;
   public answer = '';
   protected title = 'Traduza essa frase';
+  protected advice = 'Tenha calma e não gaste suas chances.';
 
-  constructor() { }
+  private rodada = 0;
+  private rodadaFrase: Frase;
 
-  ngOnInit() {
+  constructor() {
+    this.rodadaFrase = frases[this.rodada];
+  }
+
+  ngOnInit() {}
+
+  public sendAnswer(event: Event): void {
+    if (this.answer === this.rodadaFrase.fraseBr) {
+      console.log('correto')
+    } else {
+      console.log('errado')
+    }
   }
 
 }
