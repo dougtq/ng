@@ -36,7 +36,6 @@ export class PainelComponent implements OnInit {
       this.answer = '';
       this.progresso = this.progresso + 25;
     } else {
-      alert('Tradução incorreta, tente novamente!');
       this.tentativas--;
       if (this.tentativas <= 0) {
         alert('Suas tentativas se esgotaram');
