@@ -10,8 +10,8 @@
   text-align: center;
 }
 
-button {
-  align-self: auto;
+.row {
+  text-align: center;
 }
 
 .container {
