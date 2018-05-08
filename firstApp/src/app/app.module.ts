@@ -7,7 +7,6 @@ import { TopoComponent } from './topo/topo.component';
 import { PainelComponent } from './painel/painel.component';
 import { TentativasComponent } from './tentativas/tentativas.component';
 import { ProgressoComponent } from './progresso/progresso.component';
-import { RespostasComponent } from './respostas/respostas.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { RespostasComponent } from './respostas/respostas.component';
     TopoComponent,
     PainelComponent,
     TentativasComponent,
-    ProgressoComponent,
-    RespostasComponent
+    ProgressoComponent
   ],
   imports: [
     BrowserModule,
