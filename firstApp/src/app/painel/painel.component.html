@@ -2,15 +2,31 @@
   <div class="jumbotron">
     <div class="row info">
       <div class="col-sm-6">
-        <app-progresso></app-progresso>
+        <app-progresso [progresso]="progresso"></app-progresso>
       </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
-          <app-tentativas></app-tentativas>
+          <app-tentativas [tentativas]="tentativas"></app-tentativas>
         </div>
       </div>
     </div>
-    <app-respostas></app-respostas>
+    <div class="row">
+      <div class="col">
+        <h6>{{ title }}</h6>
+        <p>{{ rodadaFrase.fraseEng }}</p>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="answer" id="translatedText" aria-describedby="textHelp" placeholder="Traduza a frase...">
+          <small id="textHelp" class="form-text text-muted">{{ advice }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-outline-primary" [disabled]="!answer" (click)="sendAnswer($event)">Comparar</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
