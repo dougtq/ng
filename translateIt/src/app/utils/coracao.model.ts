@@ -1,8 +1,8 @@
 export class Coracao {
   constructor(
     public cheio = true,
-    protected urlCheio = '/assets/coracao_cheio.png',
-    protected urlVazio = '/assets/coracao_vazio.png'
+    public urlCheio = '/assets/coracao_cheio.png',
+    public urlVazio = '/assets/coracao_vazio.png'
   ) {}
 
   public existeCoracao() {

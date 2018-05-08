@@ -12,11 +12,11 @@ export class PainelComponent implements OnInit {
   public progresso = 0;
   public tentativas = 3;
   @Output() public encerrarJogo = new EventEmitter();
-  private frases = frases;
-  private advice = 'Tenha calma e não gaste suas chances.';
-  private title = 'Traduza essa frase';
-  private rodada = 0;
-  private rodadaFrase: Frase;
+  public frases = frases;
+  public advice = 'Tenha calma e não gaste suas chances.';
+  public title = 'Traduza essa frase';
+  public rodada = 0;
+  public rodadaFrase: Frase;
 
   constructor() {
     this.atualizaRodada();
@@ -45,7 +45,7 @@ export class PainelComponent implements OnInit {
     }
   }
 
-  private atualizaRodada(): void {
+  public atualizaRodada(): void {
     this.rodadaFrase = frases[this.rodada];
   }
 }
