@@ -1,3 +1,1 @@
-<img [src]="fullHeart" alt="">
-<img [src]="fullHeart" alt="">
-<img [src]="fullHeart" alt="">
+<img *ngFor="let coracao of coracoes; let i = index;" [src]="coracao.existeCoracao()"/>
