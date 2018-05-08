@@ -1,0 +1,19 @@
+.erro {
+  color: red;
+}
+
+.sucesso {
+  color: green;
+}
+
+.msg-fim {
+  text-align: center;
+}
+
+button {
+  align-self: auto;
+}
+
+.container {
+  margin-top: 50px;
+}
