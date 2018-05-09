@@ -9,7 +9,7 @@
 
   <div class="row">
     
-    <div class="col-sm-4" [id]="i" *ngFor="let oferta of ofertas; let i = index">
+    <div class="col-sm-4 oferta-row" [id]="i" *ngFor="let oferta of ofertas; let i = index">
       <div class="card">
         <img class="card-img-top" [src]="oferta.imagens[0].url">
         <div class="card-block">
