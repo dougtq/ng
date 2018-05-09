@@ -5,11 +5,11 @@ export class NavService {
     return [
       {
         name: 'Restaurantes',
-        route: '#'
+        route: '/restaurantes'
       },
       {
         name: 'Diversão',
-        route: '#'
+        route: '/diversao'
       },
     ];
   }
