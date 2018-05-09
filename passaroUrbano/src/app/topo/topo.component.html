@@ -1,17 +1,17 @@
 <div class="fixed-top">
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a href="/" class="navbar-brand">
+      <a routerLink="/" class="navbar-brand">
         <img src="/assets/logo.png" />
       </a>
-      <a a href="#"><img src="/assets/carrinho.png" /></a>
+      <a a routerLink="/"><img src="/assets/carrinho.png" /></a>
     </div>
   </nav>
   <div class="menu">
     <div class="container">
       <ul class="nav">
         <li class="nav-item" *ngFor="let nav of navs; let i = index">
-          <a class="nav-link active" [href]="nav.route">{{ nav.name }}</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="nav.route">{{ nav.name }}</a>
         </li>
       </ul>
     </div>
