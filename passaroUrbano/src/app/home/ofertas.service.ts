@@ -9,7 +9,7 @@ export class OfertasService {
         titulo: 'Super Burger',
         descricao_oferta: 'Rodízio de Mini-hambúrger com opção de entrada.',
         anunciante: 'Original Burger',
-        valor: 29.90,
+        valor: '29.90',
         destaque: true,
         imagens: [
           {url: '/assets/ofertas/1/img1.jpg'},
@@ -24,7 +24,7 @@ export class OfertasService {
         titulo: 'Cozinha Mexicana',
         descricao_oferta: 'Almoço ou Jantar com Rodízio Mexicano delicioso.',
         anunciante: 'Mexicana',
-        valor: 32.90,
+        valor: '32.90',
         destaque: true,
         imagens: [
           {url: '/assets/ofertas/2/img1.jpg'},
@@ -39,7 +39,7 @@ export class OfertasService {
         titulo: 'Estância das águas',
         descricao_oferta: 'Diversão garantida com piscinas, trilhas e muito mais.',
         anunciante: 'Estância das águas',
-        valor: 31.90,
+        valor: '31.90',
         destaque: true,
         imagens: [
           {url: '/assets/ofertas/3/img1.jpg'},
