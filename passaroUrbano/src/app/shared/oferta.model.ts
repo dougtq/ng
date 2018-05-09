@@ -4,7 +4,7 @@ export interface Oferta {
   titulo: string;
   descricao_oferta: string;
   anunciante: string;
-  valor: number;
+  valor: string;
   destaque: boolean;
   imagens: Array<Img>;
 }
