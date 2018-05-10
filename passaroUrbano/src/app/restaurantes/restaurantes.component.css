@@ -8,3 +8,14 @@ img {
     padding-left: 25px;
     padding-right: 25px;
 }
+
+.oferta-row {
+    margin-bottom: 30px;
+}
+
+@media(max-width:640px) {
+    .col-md-8 {
+        margin-left: 10px;
+    }
+}
+
