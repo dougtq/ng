@@ -9,7 +9,7 @@ import { resolve } from 'url';
 @Injectable()
 export class OfertasService {
   private ofertas: Array<Oferta> = [];
-
+  private oferta: Oferta;
   constructor(private http: Http) {}
 
   public getOfertas(): Promise<Oferta[]> {
@@ -39,6 +39,22 @@ export class OfertasService {
       })
       .catch((err: Error) => {
         this.ofertas = [];
+        return reject(err);
+      });
+    });
+  }
+
+  public getOferta(id: number): Promise<Oferta> {
+    return new Promise((resolve, reject) => {
+      this.http.get(environment.apiUri + 'ofertas' + `?id=${id}`)
+      .toPromise()
+      .then((res: any) => res.json().shift())
+      .then((oferta: Oferta) => {
+        this.oferta = oferta;
+        resolve(this.oferta);
+      })
+      .catch((err: Error) => {
+        this.ofertas = undefined;
         return reject(err);
       });
     });
