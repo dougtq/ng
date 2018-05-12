@@ -11,6 +11,7 @@ import { Oferta } from '../shared/oferta.model';
 })
 export class HomeComponent implements OnInit {
   public ofertas: Array<Oferta>;
+  public error: string;
 
   constructor(private ofertasService: OfertasService) {}
 
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
       this.ofertas = await this.ofertasService.getOfertas();
     } catch (error) {
       this.ofertas = [];
+      this.error = 'Ocorreu um problema, tente novamente em alguns segundos!';
     }
   }
 

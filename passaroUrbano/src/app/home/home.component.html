@@ -7,8 +7,7 @@
 
   <hr />
 
-  <div class="row">
-    
+  <div class="row"> 
     <div class="col-sm-4 oferta-row" [id]="i" *ngFor="let oferta of ofertas; let i = index">
       <div class="card">
         <img class="card-img-top" [src]="oferta.imagens[0].url">
@@ -20,8 +19,8 @@
         </div>
       </div>
     </div>
-
-  </div>
+    <view-error *ngIf="!ofertas.length" [error]="error"></view-error>
+  </div>  
   
   <hr />
   
