@@ -14,7 +14,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ComoUsarComponent
+        redirectTo: 'como-usar',
+        pathMatch: 'full'
       },
       {
         path: 'como-usar',
