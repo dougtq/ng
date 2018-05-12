@@ -22,3 +22,13 @@
 .active {
     color: #FFF 
 }
+
+.list-group {
+    position: absolute;
+    width: 100vh;
+}
+
+.pesquisa-input {
+    width: 100vh;
+    margin-right: 10px;
+}

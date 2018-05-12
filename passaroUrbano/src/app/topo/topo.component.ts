@@ -7,9 +7,7 @@ import { Nav } from '../shared/nav.model';
 import { OfertasService } from '../shared/ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/of';
+import '../utils/rxjs-ext';
 
 @Component({
   selector: 'view-topo',
@@ -28,12 +26,16 @@ export class TopoComponent implements OnInit {
   ngOnInit() {
     this.navs = this.navService.getNavLinks();
     this.observablePesquisa = this.subjectPesquisa
-      .debounceTime(2000)
+      .debounceTime(1000)
+      .distinctUntilChanged()
       .switchMap((termo: string, i: number): ObservableInput<Oferta[]> => {
         if (!termo.trim()) {
           return Observable.of<Array<Oferta>>([]);
         }
         return this.ofertaService.pesquisaOferta(termo);
+      })
+      .catch((err: any): ObservableInput<Oferta[]> => {
+        return Observable.of<Array<Oferta>>([]);
       });
 
     this.observablePesquisa.subscribe((ofertas: Array<Oferta>) => {

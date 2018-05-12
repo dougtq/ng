@@ -12,12 +12,17 @@
             type="text" 
             #termoPesquisa
             (keyup)="pesquisa(termoPesquisa.value)"
-            class="form-control" 
+            class="form-control pesquisa-input" 
             placeholder="Pesquise por ofertas...">
+          <div class="list-group">
+            <button type="button" *ngFor="let oferta of ofertas;" [routerLink]="['/oferta', oferta.id]" class="list-group-item list-group-item-action">{{ oferta.titulo }}</button>
+          </div>
         </div>
-        <div class="col-md-2">
-          <a a routerLink="/"><img src="/assets/carrinho.png" /></a>
-        </div>
+        <!-- <div class="col-md-2 cart">
+          <div class="d-flex justify-content-end">
+            <a a routerLink="/"><img src="/assets/carrinho.png" /></a>
+          </div>
+        </div> -->
       </div>
     </div>
   </nav>
