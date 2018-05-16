@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { OfertasService } from '../../shared/ofertas.service';
 import { OndeFica } from '../../shared/onde-fica.model';
 
@@ -16,13 +16,16 @@ export class OndeFicaComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private ofertasService: OfertasService) { }
 
-  async ngOnInit() {
-    this.id = this.activatedRoute.parent.snapshot.params['id'];
-    try {
-      this.ondeFica = await this.ofertasService.getOndeFica(this.id);
-    } catch (error) {
-      this.error = error.message;
-    }
+  ngOnInit() {
+    this.activatedRoute.parent.params.subscribe(async (params: Params) => {
+      this.id = params.id;
+      try {
+        this.ondeFica = await this.ofertasService.getOndeFica(this.id);
+      } catch (error) {
+        this.error = error.message;
+      }
+    });
+
   }
 
 }

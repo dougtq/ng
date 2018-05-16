@@ -12,6 +12,7 @@
 
 .banner {
     margin-top: 130px;
+    margin-bottom: 20px;
 }
 
 .banner img {
@@ -31,4 +32,8 @@
 .pesquisa-input {
     width: 100vh;
     margin-right: 10px;
+}
+
+.pesquisa {
+    z-index: 999;
 }

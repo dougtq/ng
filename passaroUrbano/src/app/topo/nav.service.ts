@@ -11,6 +11,10 @@ export class NavService {
         name: 'Diversão',
         route: '/diversao'
       },
+      {
+        name: 'Ordem de Compra',
+        route: '/ordem-compra'
+      },
     ];
   }
 }

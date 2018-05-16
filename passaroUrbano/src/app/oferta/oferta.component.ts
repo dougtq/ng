@@ -15,26 +15,25 @@ import { Subscription } from 'rxjs/Subscription';
   providers: [OfertasService]
 })
 export class OfertaComponent implements OnInit, OnDestroy {
-  subscribed: Subscription;
+  private subscribed: Subscription;
   protected id: number;
   public oferta: Oferta;
   public error: string;
 
   constructor(private activatedRoute: ActivatedRoute, private ofertaService: OfertasService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     // this.id = this.activatedRoute.snapshot.params['id'];
-    this.subscribed = this.activatedRoute.params.subscribe((param: any) => {
+    this.subscribed = this.activatedRoute.params.subscribe(async (param: any) => {
       this.id = param.id;
+      try {
+        this.oferta = await this.ofertaService.getOferta(this.id);
+      } catch (error) {
+        this.oferta = undefined;
+      }
     }, (err: any) => {
       this.error = err.message;
     });
-
-    try {
-      this.oferta = await this.ofertaService.getOferta(this.id);
-    } catch (error) {
-      this.oferta = undefined;
-    }
 
     // const observer = Observable.create((created: Observer<number>) => {
     //   created.next(1);

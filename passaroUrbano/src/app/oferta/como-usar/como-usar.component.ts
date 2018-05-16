@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { OfertasService } from '../../shared/ofertas.service';
 import { ComoUsar } from '../../shared/como-usar.model';
 
@@ -16,13 +16,16 @@ export class ComoUsarComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private ofertasService: OfertasService) { }
 
-  async ngOnInit() {
-    this.id = this.activatedRoute.parent.snapshot.params['id'];
-    try {
-      this.comoUsar = await this.ofertasService.getComoUsar(this.id);
-    } catch (error) {
-      this.error = error.message;
-    }
+  ngOnInit() {
+    this.activatedRoute.parent.params.subscribe(async (params: Params) => {
+      this.id = params.id;
+      try {
+        this.comoUsar = await this.ofertasService.getComoUsar(this.id);
+      } catch (error) {
+        this.error = error.message;
+      }
+    });
+
   }
 
 }
