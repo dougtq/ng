@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-end" [@anima-banner]="estadoBanner">
+      <app-banner></app-banner>
+    </div>
+
+    <div class="col-sm-6 d-flex justify-content-start" [@anima-user]="estadoUser">
+      <!-- <router-link></router-link> -->
+      <app-login (cadastro)="recebeCadastro($event)" *ngIf="!cadastro"></app-login>
+      <app-cadastro (cadastro)="recebeCadastro($event)" *ngIf="cadastro"></app-cadastro>
+    </div>  
+  </div>
+</div>

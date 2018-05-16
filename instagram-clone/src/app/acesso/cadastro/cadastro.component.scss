@@ -1,0 +1,18 @@
+@import '../../sass/_vars';
+
+.card-title {
+  background-image: url($logoInsta);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 100%;
+}
+
+a.card-link {
+  &:hover {
+    color: rgb(39, 39, 248);
+  }
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(39, 39, 248);
+}

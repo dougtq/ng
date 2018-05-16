@@ -1,0 +1,12 @@
+@import '../../sass/_vars';
+
+.banner-background {
+  background-image: url($fundoBanner);
+  height: 602px;
+  width: 379px;
+  padding-top: 91px;
+  padding-left: 116px;
+  img {
+    position: absolute
+  }
+}

@@ -1,0 +1,4 @@
+<!-- <button (click)="mudaEstado()">Muda</button> -->
+<div class="banner-background">
+  <img *ngFor="let img of imgs" [src]="img.url" [@banner]="img.estado" alt="">
+</div>
