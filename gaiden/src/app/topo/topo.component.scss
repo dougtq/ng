@@ -1,0 +1,12 @@
+a {
+  img {
+    width: 100px; 
+    height: 40px;
+  }
+}
+
+nav {
+  &.nav {
+    background-color:  rgb(63, 101, 148);
+  }
+}
