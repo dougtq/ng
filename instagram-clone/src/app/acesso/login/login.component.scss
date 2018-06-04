@@ -16,3 +16,13 @@ a.card-link {
   text-decoration: underline;
   color: rgb(39, 39, 248);
 }
+
+input {
+  &.ng-invalid.ng-touched {
+    border: solid 1px red;
+  }
+
+  &.ng-valid.ng-touched {
+    border: solid 1px green;
+  }
+}

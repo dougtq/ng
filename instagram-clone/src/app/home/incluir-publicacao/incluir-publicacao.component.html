@@ -1,0 +1,38 @@
+<div class="modal fade" id="incluir-publicacao" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" *ngIf="!progressoPublicacao">
+      <div class="modal-header">
+        <h5 class="modal-title">Nova publicação</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>  
+      </div>
+      <form [formGroup]="formulario" (ngSubmit)="publicar()">
+        <div class="modal-body">
+          <input formControlName="titulo" type="text" placeholder="Título da publicação" class="form-control">
+          <input formControlName="img" (change)="setImage($event)" type="file" accept="image/*" placeholder="A foto que deseja publicar" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button [disabled]="!formulario.valid || !img" type="submit" class="btn btn-primary">Publicar</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-content" *ngIf="progressoPublicacao === 'andamento'">
+      <div class="modal-header">
+        <h5 class="modal-title">Publicação em andamento</h5>
+      </div>
+      <div class="modal-body">
+        Porcentagem do upload: {{ porcentagemUpload }}%
+      </div>
+    </div>
+    <div *ngIf="progressoPublicacao === 'concluido'" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Publicação realizada!</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>  
+      </div>
+    </div>
+  </div>
+</div>

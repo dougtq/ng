@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-sm-6 d-flex justify-content-start" [@anima-user]="estadoUser">
-      <!-- <router-link></router-link> -->
+      <!-- <router-outlet></router-outlet> -->
       <app-login (cadastro)="recebeCadastro($event)" *ngIf="!cadastro"></app-login>
       <app-cadastro (cadastro)="recebeCadastro($event)" *ngIf="cadastro"></app-cadastro>
     </div>  
