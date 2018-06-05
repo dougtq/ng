@@ -5,11 +5,11 @@
       <div class="add-post" data-toggle="modal" data-target="#incluir-publicacao"></div>
       <div class="menu-link logout" (click)="logOut()"></div>
     </div>
-  </div>  
+  </div>
 </nav>
 
 <br /><br /><br />
 <div class="container">
-  <app-publicacoes></app-publicacoes>
-  <app-incluir-publicacao></app-incluir-publicacao>   
+  <app-publicacoes #publicacoes></app-publicacoes>
+  <app-incluir-publicacao (atualizaTimeLine)="atualizaTimeLine()"></app-incluir-publicacao>   
 </div>
