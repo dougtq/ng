@@ -39,36 +39,40 @@ export class PostsService {
   }
 
   public atualizaTimeline(): Promise<PublicacaoInterface[]> {
-    const publicacoes: Array<PublicacaoInterface> = [];
     return new Promise((resolve, reject) => {
       database()
-        .ref(`publicacoes/${btoa(this.auth.getEmail())}`)
-        .once('value')
-        .then((snapshot) => {
-          snapshot.forEach((snapshotChild) => {
-            storage()
-              .ref()
-              .child(`imagens/${snapshotChild.key}`)
-              .getDownloadURL()
-              .then(async (url: string) => {
-                const publicacao = snapshotChild.val().titulo;
-                database()
-                .ref(`users/${btoa(this.auth.getEmail())}`)
-                  .once('value')
-                  .then((user) => {
-                    publicacao.urlImagem = url;
-                    publicacao.usuario = user.val().usuario;
-                    publicacoes.push(publicacao);
-                  })
-                  .catch((err) => reject(Error('Erro ao carregar a timeline!')));
-              })
-              .catch((err) => reject(Error('Erro ao carregar a timeline!')));
-            });
-            return resolve(publicacoes);
-          })
-        .catch((err) => {
-          return reject(Error('Erro ao carregar a timeline!'));
+      .ref(`publicacoes/${btoa(this.auth.getEmail())}`)
+      .orderByKey()
+      .once('value')
+      .then((snapshot) => {
+        const publicacoes: Array<PublicacaoInterface> = [];
+        snapshot.forEach((snapshotChild) => {
+          const publicacao = snapshotChild.val().titulo;
+          publicacao.key = snapshotChild.key;
+          publicacoes.push(publicacao);
         });
+        return publicacoes.reverse();
+      })
+      .then((publ: Array<any>) => {
+        const posts: Array<any> = [];
+        publ.forEach((publicacaoOrdenada) => {
+          storage()
+          .ref()
+          .child(`imagens/${publicacaoOrdenada.key}`)
+          .getDownloadURL()
+          .then(async (url: string) => {
+            publicacaoOrdenada.urlImagem = url;
+            database().ref(`users/${btoa(this.auth.getEmail())}`).once('value')
+              .then((user) => {
+                publicacaoOrdenada.usuario = user.val().usuario;
+              }).catch((err) => reject(Error('Erro ao carregar a timeline!')));
+          }).catch((err) => reject(Error('Erro ao carregar a timeline!')));
+        });
+        return resolve(publ);
+      })
+      .catch((err) => {
+        return reject(Error('Erro ao carregar a timeline!'));
       });
-    }
+    });
   }
+}
