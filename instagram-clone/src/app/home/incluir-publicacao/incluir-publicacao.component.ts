@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 // import { auth } from 'firebase';
 import { Observable } from 'rxjs/Observable';
@@ -14,6 +14,7 @@ import { Subject, operators } from 'rxjs/Rx';
   styleUrls: ['./incluir-publicacao.component.scss']
 })
 export class IncluirPublicacaoComponent implements OnInit {
+  @Output() public atualizaTimeLine: EventEmitter<any> = new EventEmitter<any>();
   public formulario: FormGroup = new FormGroup({
     'titulo': new FormControl(null, [Validators.required]),
     'img': new FormControl(null)
@@ -49,6 +50,7 @@ export class IncluirPublicacaoComponent implements OnInit {
           if (this.progess.state === 'concluido') {
             this.progressoPublicacao = this.progess.state;
             continua.next(false);
+            this.atualizaTimeLine.emit();
           }
         });
     }
