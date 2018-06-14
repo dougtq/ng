@@ -36,6 +36,7 @@
         >
       </div>
       <button [disabled]="!formulario.valid || loading" type="submit" class="btn btn-primary btn-sm btn-block">Cadastre-se</button>
+      <app-spinner *ngIf="isLoading"></app-spinner>
     </form>
     <hr />
 

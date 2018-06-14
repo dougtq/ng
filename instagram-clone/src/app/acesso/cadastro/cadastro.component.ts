@@ -12,7 +12,7 @@ import { HandlerService } from '../../error-handler.service';
 export class CadastroComponent implements OnInit {
   @Output() public cadastro = new EventEmitter<string>();
   public usuario: Usuario;
-  public loading = false;
+  public isLoading = false;
 
   public formulario: FormGroup = new FormGroup({
     'email': new FormControl(null, [Validators.email, Validators.required]),
@@ -30,6 +30,7 @@ export class CadastroComponent implements OnInit {
   }
 
   async cadastrarUsuario() {
+    this.isLoading = true;
     this.usuario = new Usuario(
       this.formulario.value.email,
       this.formulario.value.nome_completo,
@@ -37,6 +38,6 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha);
 
     this.authService.cadastrarUsuario(this.usuario);
-
+    this.isLoading = false;
   }
 }
