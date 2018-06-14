@@ -19,6 +19,7 @@ import { AuthGuard } from './auth-guard.service';
 import { HandlerService } from './error-handler.service';
 import { PostsService } from './posts.service';
 import { ProgressService } from './progess.service';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProgressService } from './progess.service';
     CadastroComponent,
     HomeComponent,
     PublicacoesComponent,
-    IncluirPublicacaoComponent
+    IncluirPublicacaoComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
