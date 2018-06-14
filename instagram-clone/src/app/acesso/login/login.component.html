@@ -19,7 +19,8 @@
           formControlName="senha"
         >
       </div>
-      <button [disabled]="!formulario.valid || loading" type="submit" class="btn btn-primary btn-sm btn-block">Entrar</button>
+      <button [disabled]="!formulario.valid || isLoading" type="submit" class="btn btn-primary btn-sm btn-block">Entrar</button>
+      <app-spinner *ngIf="isLoading"></app-spinner>
     </form>
     <hr />
     <p class="small text-success text-center">Go live that gram life.</p>

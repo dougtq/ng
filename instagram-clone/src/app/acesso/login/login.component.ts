@@ -11,7 +11,7 @@ import { HandlerService } from '../../error-handler.service';
 export class LoginComponent implements OnInit {
   @Output() public cadastro = new EventEmitter<string>();
 
-  public loading = false;
+  public isLoading = false;
 
   public formulario: FormGroup = new FormGroup({
     'email': new FormControl(null, [Validators.email, Validators.required]),
@@ -27,11 +27,10 @@ export class LoginComponent implements OnInit {
   }
 
   async executaLogin() {
-    this.loading = true;
-
+    this.isLoading = true;
     const { email, senha } = this.formulario.value;
-    this.authService.logarUsuario({ email, senha });
 
-    this.loading = false;
+    this.authService.logarUsuario({ email, senha });
+    this.isLoading = false;
   }
 }
