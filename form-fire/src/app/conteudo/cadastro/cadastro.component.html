@@ -1,3 +1,18 @@
-<p>
-  cadastro works!
-</p>
+<div class="c-conteudo l-cadastro">
+  <form [formGroup]="formulario" (ngSubmit)="enviaCadastro()">
+    <div class="form-group">
+      <label for="inputEmail">Email</label>
+      <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Enter your e-mail">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Enter your password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" formControlName="check" class="form-check-input" id="inputCheck">
+      <label class="form-check-label" for="inputCheck">Me marque!!!</label>
+    </div>
+    <button [disabled]="!formulario.valid" type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+  </form>
+</div>
