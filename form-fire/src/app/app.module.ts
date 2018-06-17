@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { CadastroComponent } from './conteudo/cadastro/cadastro.component';
+import { LoginComponent } from './conteudo/login/login.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,12 @@ import { CadastroComponent } from './conteudo/cadastro/cadastro.component';
     TopoComponent,
     RodapeComponent,
     ConteudoComponent,
-    CadastroComponent
+    CadastroComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
